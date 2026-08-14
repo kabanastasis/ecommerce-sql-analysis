@@ -66,8 +66,8 @@ cohort_periods AS (
         activity_month,
         TIMESTAMPDIFF(
             MONTH,
-            STR_TO_DATE(cohort_month, '%Y-%m'),
-            STR_TO_DATE(activity_month, '%Y-%m')
+             STR_TO_DATE(CONCAT(cohort_month, '-01'), '%Y-%m-%d'),
+			 STR_TO_DATE(CONCAT(activity_month, '-01'), '%Y-%m-%d')
         ) AS months_since_acquisition
     FROM cohort_activity
 ),
