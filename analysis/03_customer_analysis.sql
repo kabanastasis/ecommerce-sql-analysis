@@ -1,27 +1,22 @@
--- =====================================================
 -- E-Commerce Sales & Customer Analytics
 -- Section 03: Customer Analysis
 -- Database: MySQL
--- =====================================================
 
 
--- -----------------------------------------------------
--- 1. Unique Customers With Orders
+
+# 1. Unique Customers With Orders
 -- Business Question:
 -- How many unique customers have placed at least one order?
--- -----------------------------------------------------
 
 SELECT
     COUNT(DISTINCT customer_id) AS unique_customers
 FROM orders;
 
 
--- -----------------------------------------------------
--- 2. Top 20 Customers by Spending
+# 2. Top 20 Customers by Spending
 -- Business Question:
 -- Which customers generated the highest revenue
 -- from completed orders?
--- -----------------------------------------------------
 
 SELECT
     c.customer_id,
@@ -47,11 +42,9 @@ ORDER BY total_spent DESC
 LIMIT 20;
 
 
--- -----------------------------------------------------
--- 3. One-Time Customers
+# 3. One-Time Customers
 -- Business Question:
 -- Which customers have completed exactly one order?
--- -----------------------------------------------------
 
 SELECT
     c.customer_id,
@@ -72,12 +65,10 @@ HAVING COUNT(DISTINCT o.order_id) = 1
 ORDER BY total_spent DESC;
 
 
--- -----------------------------------------------------
--- 4. Repeat Customer Rate
+# 4. Repeat Customer Rate
 -- Business Question:
 -- What percentage of customers with completed orders
 -- have made at least two completed purchases?
--- -----------------------------------------------------
 
 WITH customer_orders AS (
     SELECT
@@ -106,15 +97,13 @@ SELECT
 FROM customer_orders;
 
 
--- -----------------------------------------------------
--- 5. Simplified Customer Lifetime Value
+# 5. Simplified Customer Lifetime Value
 -- Business Question:
 -- How much completed-order revenue has each customer
 -- generated over their lifetime?
 --
 -- Customers without completed orders are retained
 -- with CLV equal to zero.
--- -----------------------------------------------------
 
 SELECT
     c.customer_id,
@@ -138,8 +127,7 @@ ORDER BY clv DESC
 LIMIT 20;
 
 
--- -----------------------------------------------------
--- 6. Customer Segmentation
+# 6. Customer Segmentation
 -- Business Question:
 -- How can customers be segmented based on
 -- their total completed-order spending?
@@ -147,7 +135,6 @@ LIMIT 20;
 -- High Value   >= 1000
 -- Medium Value >= 500 and < 1000
 -- Low Value    < 500
--- -----------------------------------------------------
 
 WITH customer_spending AS (
     SELECT
@@ -179,12 +166,10 @@ FROM customer_spending
 ORDER BY total_spent DESC;
 
 
--- -----------------------------------------------------
--- 7. Customer Segment Distribution
+# 7. Customer Segment Distribution
 -- Business Question:
 -- How many customers belong to each value segment,
 -- and what percentage of customers does each represent?
--- -----------------------------------------------------
 
 WITH customer_spending AS (
     SELECT
@@ -229,12 +214,10 @@ FROM segment_counts
 ORDER BY customers DESC;
 
 
--- -----------------------------------------------------
--- 8. Average Order Value by Customer Segment
+# 8. Average Order Value by Customer Segment
 -- Business Question:
 -- How do revenue, order volume and AOV differ
 -- between High, Medium and Low Value customers?
--- -----------------------------------------------------
 
 WITH customer_metrics AS (
     SELECT
