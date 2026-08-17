@@ -1,16 +1,12 @@
--- =====================================================
 -- E-Commerce Sales & Customer Analytics
 -- Section 02: Product & Category Analysis
 -- Database: MySQL
--- =====================================================
 
 
--- -----------------------------------------------------
--- 1. Top 10 Products by Revenue
+# 1. Top 10 Products by Revenue
 -- Business Question:
 -- Which products generate the highest revenue
 -- from completed orders?
--- -----------------------------------------------------
 
 SELECT
     oi.product_id,
@@ -29,11 +25,9 @@ ORDER BY product_revenue DESC
 LIMIT 10;
 
 
--- -----------------------------------------------------
--- 2. Top 10 Products by Units Sold
+# 2. Top 10 Products by Units Sold
 -- Business Question:
 -- Which products sold the highest number of units?
--- -----------------------------------------------------
 
 SELECT
     oi.product_id,
@@ -52,12 +46,10 @@ ORDER BY units_sold DESC
 LIMIT 10;
 
 
--- -----------------------------------------------------
--- 3. Category Performance
+# 3. Category Performance
 -- Business Question:
 -- How does each product category perform in terms
 -- of revenue, units sold, orders and AOV?
--- -----------------------------------------------------
 
 SELECT
     c.category_id,
@@ -84,12 +76,10 @@ GROUP BY
 ORDER BY revenue DESC;
 
 
--- -----------------------------------------------------
--- 4. Best Product Within Each Category
+# 4. Best Product Within Each Category
 -- Business Question:
 -- Which product generates the most revenue
 -- within each category?
--- -----------------------------------------------------
 
 WITH revenue_per_product AS (
     SELECT
@@ -134,12 +124,10 @@ WHERE row_num = 1
 ORDER BY revenue DESC;
 
 
--- -----------------------------------------------------
--- 5. Category Revenue Share
+# 5. Category Revenue Share
 -- Business Question:
 -- What percentage of total revenue is generated
 -- by each product category?
--- -----------------------------------------------------
 
 WITH category_revenue AS (
     SELECT
@@ -175,12 +163,10 @@ FROM category_totals
 ORDER BY revenue DESC;
 
 
--- -----------------------------------------------------
--- 6. Top Revenue Category by Month
+# 6. Top Revenue Category by Month
 -- Business Question:
 -- Which category generated the most revenue
 -- in each month?
--- -----------------------------------------------------
 
 WITH monthly_category_revenue AS (
     SELECT
@@ -222,12 +208,10 @@ WHERE row_num = 1
 ORDER BY month;
 
 
--- -----------------------------------------------------
--- 7. Products With Declining Revenue
+# 7. Products With Declining Revenue
 -- Business Question:
 -- Which products experienced negative revenue growth
 -- in their latest available month?
--- -----------------------------------------------------
 
 WITH product_monthly_revenue AS (
     SELECT
@@ -285,12 +269,10 @@ WHERE row_num = 1
 ORDER BY growth_percentage;
 
 
--- -----------------------------------------------------
--- 8. Pareto Analysis
+# 8. Pareto Analysis
 -- Business Question:
 -- Which products account for approximately 80%
 -- of total revenue?
--- -----------------------------------------------------
 
 WITH product_revenue AS (
     SELECT
