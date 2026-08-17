@@ -1,16 +1,14 @@
--- =====================================================
 -- E-Commerce Sales & Customer Analytics
 -- Section 04: Customer Retention Analysis
 -- Database: MySQL
--- =====================================================
 
 
--- -----------------------------------------------------
--- 1. Monthly Active Customers
+
+# 1. Monthly Active Customers
 -- Business Question:
 -- How many unique customers completed at least
 -- one purchase in each month?
--- -----------------------------------------------------
+
 
 SELECT
     SUBSTRING(order_date, 1, 7) AS month,
@@ -21,12 +19,10 @@ GROUP BY SUBSTRING(order_date, 1, 7)
 ORDER BY month;
 
 
--- -----------------------------------------------------
--- 2. Month-over-Month Active Customer Growth
+# 2. Month-over-Month Active Customer Growth
 -- Business Question:
 -- How is the number of active customers changing
 -- compared with the previous month?
--- -----------------------------------------------------
 
 WITH monthly_active_customers AS (
     SELECT
@@ -60,8 +56,7 @@ FROM previous_month_customers
 ORDER BY month;
 
 
--- -----------------------------------------------------
--- 3. New vs Returning Customers
+# 3. New vs Returning Customers
 -- Business Question:
 -- How many active customers each month are new
 -- customers versus returning customers?
@@ -72,7 +67,6 @@ ORDER BY month;
 -- Returning Customer:
 -- Customer completed an order in a previous month
 -- and purchased again.
--- -----------------------------------------------------
 
 WITH first_purchase AS (
     SELECT
@@ -135,15 +129,13 @@ GROUP BY month
 ORDER BY month;
 
 
--- -----------------------------------------------------
--- 4. Monthly Repeat Purchase Rate
+# 4. Monthly Repeat Purchase Rate
 -- Business Question:
 -- What percentage of active customers each month
 -- are returning customers?
 --
 -- Repeat Purchase Rate =
 -- Returning Customers / Total Active Customers
--- -----------------------------------------------------
 
 WITH first_purchase AS (
     SELECT
