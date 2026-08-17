@@ -1,11 +1,8 @@
--- =====================================================
 -- E-Commerce Sales & Customer Analytics
 -- Section 05: Cohort Retention Analysis
 -- Database: MySQL
--- =====================================================
 
 
--- -----------------------------------------------------
 -- Cohort Retention Analysis
 -- Business Question:
 -- For customers acquired in each month, what percentage
@@ -19,7 +16,7 @@
 -- 1 = one month after acquisition
 -- 2 = two months after acquisition
 -- etc.
--- -----------------------------------------------------
+
 
 WITH first_purchase AS (
     SELECT
