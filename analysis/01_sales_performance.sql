@@ -1,28 +1,22 @@
--- =====================================================
 -- E-Commerce Sales & Customer Analytics
 -- Section 01: Sales Performance
 -- Database: MySQL
--- =====================================================
 
 
--- -----------------------------------------------------
--- 1. Total Orders
+# 1. Total Orders
 -- Business Question:
 -- How many orders have been placed in total,
 -- regardless of order status?
--- -----------------------------------------------------
 
 SELECT 
     COUNT(*) AS total_orders
 FROM orders;
 
 
--- -----------------------------------------------------
--- 2. Total Revenue
+# 2. Total Revenue
 -- Business Question:
 -- How much revenue has been generated from
 -- completed orders?
--- -----------------------------------------------------
 
 SELECT 
     ROUND(SUM(oi.unit_price * oi.quantity), 2) AS total_revenue
@@ -32,13 +26,11 @@ JOIN order_items oi
 WHERE o.status = 'completed';
 
 
--- -----------------------------------------------------
--- 3. Average Order Value
+# 3. Average Order Value
 -- Business Question:
 -- What is the average value of a completed order?
 --
 -- AOV = Total Revenue / Number of Completed Orders
--- -----------------------------------------------------
 
 SELECT 
     ROUND(
@@ -52,12 +44,10 @@ JOIN order_items oi
 WHERE o.status = 'completed';
 
 
--- -----------------------------------------------------
--- 4. Monthly Revenue
+# 4. Monthly Revenue
 -- Business Question:
 -- How much revenue was generated each month
 -- from completed orders?
--- -----------------------------------------------------
 
 SELECT
     SUBSTRING(o.order_date, 1, 7) AS month,
@@ -73,12 +63,10 @@ GROUP BY SUBSTRING(o.order_date, 1, 7)
 ORDER BY month;
 
 
--- -----------------------------------------------------
--- 5. Month-over-Month Revenue Growth
+# 5. Month-over-Month Revenue Growth
 -- Business Question:
 -- How is revenue changing compared with
 -- the previous month?
--- -----------------------------------------------------
 
 WITH monthly_sales AS (
     SELECT
