@@ -1,11 +1,8 @@
--- =====================================================
 -- E-Commerce Sales & Customer Analytics
 -- Section 06: Monthly Business KPI Report
 -- Database: MySQL
--- =====================================================
 
 
--- -----------------------------------------------------
 -- Monthly Business KPI Report
 -- Business Question:
 -- How is the overall business performing each month?
@@ -18,7 +15,6 @@
 -- Average Order Value
 -- Cancelled Orders
 -- Cancellation Rate
--- -----------------------------------------------------
 
 WITH completed_metrics AS (
     SELECT
