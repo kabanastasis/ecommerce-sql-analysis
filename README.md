@@ -8,31 +8,10 @@ The project analyzes sales performance, product performance, customer behavior, 
 
 The dataset and SQL queries are included in the repository so the analysis can be reproduced.
 
-## SQL Skills Demonstrated
+## Tools Used
 
-- JOINs
-- CTEs
-- Window Functions
-- LAG()
-- ROW_NUMBER()
-- CASE Statements
-- Conditional Aggregation
-- GROUP BY / HAVING
-- Customer Segmentation
-- Cohort Analysis
-- Pareto Analysis
-- Month-over-Month Growth
-
-## Project Structure
-
-- `README.md`
-- `database/ecommerce_database.sql`
-- `analysis/01_sales_performance.sql`
-- `analysis/02_product_analysis.sql`
-- `analysis/03_customer_analysis.sql`
-- `analysis/04_customer_retention.sql`
-- `analysis/05_cohort_analysis.sql`
-- `analysis/06_business_kpis.sql`
+- MySQL
+- MySQL Workbench
 
 ## Key Business Insights
 
@@ -43,13 +22,6 @@ The dataset and SQL queries are included in the repository so the analysis can b
 - The monthly repeat purchase rate increased from **39.60%** to approximately **94%** by mid-2026.
 - New customer acquisition declined from **139 customers in January 2025** to **14 in July 2026**.
 - Cancellation rates increased to **17.32% in June 2026** and **16.46% in July 2026**.
-
-## Business Recommendations
-
-- Investigate the increase in order cancellations.
-- Reduce revenue dependence on Electronics by developing other product categories.
-- Maintain retention strategies for returning customers.
-- Investigate the decline in new customer acquisition.
 
 ## Dataset
 
@@ -69,9 +41,3 @@ Dataset file: `database/ecommerce_database.sql`
 1. Run `database/ecommerce_database.sql` in MySQL Workbench.
 2. Select the database with `USE ecommerce_analytics;`
 3. Run the SQL files inside the `analysis` folder.
-
-## Tools Used
-
-- MySQL
-- MySQL Workbench
-- GitHub
